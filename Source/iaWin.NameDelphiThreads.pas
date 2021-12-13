@@ -1,12 +1,15 @@
 unit iaWin.NameDelphiThreads;
 
 interface
+{$IFDEF MSWINDOWS}
 uses
   WinAPI.Windows;
 
   procedure NameDelphiThreads(const pMainThreadId:THandle);
 
+{$ENDIF}
 implementation
+{$IFDEF MSWINDOWS}
 uses
   System.SysUtils,
   System.Classes,
@@ -56,4 +59,5 @@ initialization
   NameDelphiThreads(GetCurrentThreadId);
 {$ENDIF}
 
+{$ENDIF}
 end.
